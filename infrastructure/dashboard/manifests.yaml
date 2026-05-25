@@ -21,11 +21,12 @@ data:
             <div class="card">
                 <h3>Go-Service-Template</h3>
                 <p>Status: Active | Owner: Platform Engineering</p>
-                <a href="#">View Details</a>
+                <a href="http://localhost:8080/applications/default/Go-Service-Template" target="_blank">View GitOps Details</a>
             </div>
             <div class="card">
                 <h3>Environment: dev-sample-env</h3>
                 <p>Status: Ready | Resources: Namespace + Quota</p>
+                <a href="http://localhost:8080/applications/argocd/dev-sample-env" target="_blank">View Infra Details</a>
             </div>
         </div>
     </body>
