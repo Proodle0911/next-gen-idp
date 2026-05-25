@@ -29,6 +29,7 @@ data:
           token: ${GITHUB_TOKEN}
     rollbar:
       accessToken: 'dummy-token'
+      accountToken: 'dummy-account-token'
       organization: 'dummy-org'
       project: 'dummy-project'
     scaffolder:
