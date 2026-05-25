@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: idp-templates
+  namespace: backstage
+data:
+  # Empty for now, as we use URL-based registration in the config
+  README.md: "Placeholder for templates"

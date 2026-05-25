@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - backstage-config.yaml
   - backstage-k8s.yaml
+  - templates-configmap.yaml
