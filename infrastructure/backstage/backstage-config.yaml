@@ -32,6 +32,9 @@ data:
       accountToken: 'dummy-account-token'
       organization: 'dummy-org'
       project: 'dummy-project'
+    auth:
+      providers:
+        guest: {}
     scaffolder:
       # Optional: custom configuration
     catalog:
