@@ -48,6 +48,9 @@ data:
               skipTLSVerify: true
       serviceLocatorMethod:
         type: multiTenant
+    kafka:
+      clientId: 'backstage'
+      clusters: []
     catalog:
       locations:
         - type: url
