@@ -5,4 +5,5 @@ resources:
   - ../crossplane/
   - preview-environments.yaml
   - ../observability/
+  - ../dashboard/
   # - ../ingress-nginx/

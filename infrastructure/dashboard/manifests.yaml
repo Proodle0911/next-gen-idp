@@ -1,0 +1,73 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: idp-dashboard-config
+  namespace: default
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Next-Gen IDP Dashboard</title>
+        <style>
+            body { font-family: sans-serif; padding: 20px; }
+            h1 { color: #333; }
+            .card { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        </style>
+    </head>
+    <body>
+        <h1>Next-Gen Internal Developer Platform</h1>
+        <div id="catalog">
+            <div class="card">
+                <h3>Go-Service-Template</h3>
+                <p>Status: Active | Owner: Platform Engineering</p>
+                <a href="#">View Details</a>
+            </div>
+            <div class="card">
+                <h3>Environment: dev-sample-env</h3>
+                <p>Status: Ready | Resources: Namespace + Quota</p>
+            </div>
+        </div>
+    </body>
+    </html>
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: idp-dashboard
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: idp-dashboard
+  template:
+    metadata:
+      labels:
+        app: idp-dashboard
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: config
+          mountPath: /usr/share/nginx/html/index.html
+          subPath: index.html
+      volumes:
+      - name: config
+        configMap:
+          name: idp-dashboard-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: idp-dashboard
+  namespace: default
+spec:
+  selector:
+    app: idp-dashboard
+  ports:
+  - port: 80
+    targetPort: 80
