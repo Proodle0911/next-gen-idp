@@ -46,6 +46,8 @@ data:
               authProvider: serviceAccount
               serviceAccountToken: ${KUBERNETES_SERVICE_ACCOUNT_TOKEN}
               skipTLSVerify: true
+      serviceLocatorMethod:
+        type: multiTenant
     catalog:
       locations:
         - type: url
