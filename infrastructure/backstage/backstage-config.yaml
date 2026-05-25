@@ -59,6 +59,12 @@ data:
           apiKey: 'token'
     lighthouse:
       baseUrl: http://lighthouse:4000
+    costInsights:
+      billingProject: 'dummy-project'
+    sentry:
+      organization: 'dummy-org'
+    techdocs:
+      builder: 'local'
     catalog:
       locations:
         - type: url
