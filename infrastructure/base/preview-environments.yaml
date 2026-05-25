@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: preview-environments
+  namespace: argocd
+spec:
+  generators:
+  - pullRequest:
+      github:
+        owner: YOUR_GITHUB_USER
+        repo: YOUR_APP_REPO
+        # tokenRef:
+        #   secretName: github-token
+        #   key: token
+      requeueAfterSeconds: 60
+  template:
+    metadata:
+      name: 'preview-{{number}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/{{head_repo_owner}}/{{head_repo_name}}.git'
+        targetRevision: '{{head_sha}}'
+        path: k8s/base
+        helm:
+          parameters:
+          - name: "image.tag"
+            value: "pr-{{number}}-{{head_sha}}"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: 'preview-pr-{{number}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true

@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{ values.name }}
+  description: ${{ values.description }}
+  annotations:
+    backstage.io/managed-by-location: url:https://github.com/${{ values.repoOwner }}/${{ values.repoName }}
+    backstage.io/project-slug: ${{ values.repoOwner }}/${{ values.repoName }}
+spec:
+  type: service
+  owner: user:default/guest
+  lifecycle: experimental

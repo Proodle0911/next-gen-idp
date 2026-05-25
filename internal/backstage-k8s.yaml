@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backstage
+  namespace: backstage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backstage
+  template:
+    metadata:
+      labels:
+        app: backstage
+    spec:
+      containers:
+      - name: backstage
+        image: roadiehq/community-backstage-image:latest
+        ports:
+        - containerPort: 7000
+        env:
+        - name: GITHUB_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: github-auth
+              key: GITHUB_TOKEN
+        volumeMounts:
+        - name: config-volume
+          mountPath: /usr/src/app/app-config.yaml
+          subPath: app-config.yaml
+        - name: templates-volume
+          mountPath: /var/backstage/templates
+      volumes:
+      - name: config-volume
+        configMap:
+          name: backstage-config
+      - name: templates-volume
+        configMap:
+          name: idp-templates
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backstage
+  namespace: backstage
+spec:
+  selector:
+    app: backstage
+  ports:
+  - port: 7000
+    targetPort: 7000
