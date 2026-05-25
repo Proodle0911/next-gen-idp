@@ -63,7 +63,7 @@ data:
       billingProject: 'dummy-project'
       engineerCost: 200000
       products:
-        - id: 'compute-engine'
+        compute-engine:
           name: 'Compute Engine'
     sentry:
       organization: 'dummy-org'
