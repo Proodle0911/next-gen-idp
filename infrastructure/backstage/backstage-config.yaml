@@ -19,7 +19,8 @@ data:
         port: 7000
       database:
         client: better-sqlite3
-        connection: ':memory:'
+        connection:
+          filename: ':memory:'
       cors:
         origin: http://localhost:7000
     integrations:
