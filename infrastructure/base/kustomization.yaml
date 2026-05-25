@@ -2,8 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - crossplane/
+  - ../crossplane/
   - preview-environments.yaml
-  - observability/
-  # - ingress-nginx/
-  # - backstage/
+  - ../observability/
+  # - ../ingress-nginx/
+  # - ../backstage/
