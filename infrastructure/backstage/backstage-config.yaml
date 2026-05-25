@@ -51,6 +51,14 @@ data:
     kafka:
       clientId: 'backstage'
       clusters: []
+    jenkins:
+      instances:
+        - name: default
+          baseUrl: http://jenkins:8080
+          username: 'admin'
+          apiKey: 'token'
+    lighthouse:
+      baseUrl: http://lighthouse:4000
     catalog:
       locations:
         - type: url
