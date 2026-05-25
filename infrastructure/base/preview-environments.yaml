@@ -7,8 +7,8 @@ spec:
   generators:
   - pullRequest:
       github:
-        owner: YOUR_GITHUB_USER
-        repo: YOUR_APP_REPO
+        owner: Proodle0911
+        repo: next-gen-idp
         # tokenRef:
         #   secretName: github-token
         #   key: token
