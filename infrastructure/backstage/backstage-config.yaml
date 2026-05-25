@@ -27,6 +27,12 @@ data:
       github:
         - host: github.com
           token: ${GITHUB_TOKEN}
+    rollbar:
+      accessToken: 'dummy-token'
+      organization: 'dummy-org'
+      project: 'dummy-project'
+    scaffolder:
+      # Optional: custom configuration
     catalog:
       locations:
         - type: url
