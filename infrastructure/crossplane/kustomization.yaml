@@ -4,6 +4,4 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - crossplane-app.yaml
-  - provider-config.yaml
-  - environment-xrd.yaml
-  - environment-composition.yaml
+  - crossplane-config-app.yaml
