@@ -6,4 +6,5 @@ resources:
   - preview-environments.yaml
   - ../observability/
   # - ../ingress-nginx/
-  # - ../backstage/
+  - ../../internal/backstage-config.yaml
+  - ../../internal/backstage-k8s.yaml
